@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram, Youtube, Twitch, Linkedin } from 'lucide-react';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -50,21 +50,23 @@ export const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sage-50 to-sky-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-sage-200 dark:bg-sage-900 rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-200 dark:bg-sky-900 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-adventure-200 dark:bg-adventure-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-64 h-64 bg-forest-200 dark:bg-forest-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70" style={{animationDelay: '2s'}}></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-sage-900 dark:text-sky-300">
-            Let's Connect
-          </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            Have a question, partnership idea, or just want to say hello? I'd love to hear from you. Reach out anytime!
-          </p>
+          <div className="animate-slide-up space-y-4">
+            <h1 className="section-title">
+              Let's Connect
+            </h1>
+            <p className="section-subtitle">
+              Have a question, partnership idea, or just want to say hello? I'd love to hear from you. Reach out anytime!
+            </p>
+          </div>
         </div>
       </section>
 
@@ -72,22 +74,24 @@ export const Contact = () => {
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Contact Info Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 animate-slide-up">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
                 <a
                   key={index}
                   href={info.link}
-                  className="p-8 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="card hover:scale-105 text-center"
                 >
-                  <div className="text-sage-600 dark:text-sky-400 mb-4">
-                    <Icon size={40} />
+                  <div className="text-adventure-500 mb-4 inline-block">
+                    <div className="w-16 h-16 bg-gradient-to-br from-adventure-100 to-forest-100 dark:from-adventure-900/30 dark:to-forest-900/30 rounded-full flex items-center justify-center">
+                      <Icon size={32} />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-sage-900 dark:text-sky-300">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                     {info.title}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400">
                     {info.content}
                   </p>
                 </a>
@@ -96,9 +100,9 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-8 text-sage-900 dark:text-sky-300">
+          <div className="max-w-3xl mx-auto animate-slide-up">
+            <div className="card">
+              <h2 className="text-3xl font-bold mb-8 gradient-text">
                 Send Me a Message
               </h2>
 
@@ -186,27 +190,47 @@ export const Contact = () => {
           </div>
 
           {/* Social Section */}
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-sage-900 dark:text-sky-300 mb-8">
-              Follow Me On Social Media
-            </h3>
-            <div className="flex justify-center gap-6">
-              {['Instagram', 'YouTube', 'TikTok', 'Twitter'].map((social, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="px-6 py-3 bg-sage-600 dark:bg-sky-500 text-white rounded-lg font-semibold hover:bg-sage-700 dark:hover:bg-sky-600 transition-colors duration-300"
-                >
-                  {social}
-                </a>
-              ))}
+          <div className="mt-20">
+            <div className="text-center mb-12 animate-slide-up">
+              <h3 className="text-3xl font-bold gradient-text mb-4">
+                Follow Me On Social Media
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                Connect with me across all platforms for daily travel inspiration
+              </p>
+            </div>
+            
+            <div className="flex justify-center gap-6 flex-wrap animate-slide-up">
+              {[
+                { icon: Instagram, label: 'Instagram', href: '#', color: 'from-pink-500 to-rose-500' },
+                { icon: Youtube, label: 'YouTube', href: '#', color: 'from-red-500 to-orange-500' },
+                { icon: Twitch, label: 'TikTok', href: '#', color: 'from-black to-gray-800 dark:from-white dark:to-gray-400' },
+                { icon: Linkedin, label: 'LinkedIn', href: '#', color: 'from-blue-600 to-cyan-500' },
+              ].map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="group relative"
+                    title={social.label}
+                  >
+                    <div className={`w-16 h-16 bg-gradient-to-br ${social.color} rounded-xl flex items-center justify-center text-white shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 hover:-translate-y-2`}>
+                      <Icon size={32} />
+                    </div>
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-semibold text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                      {social.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-slate-800/50">
+      {/* <section className="py-16 md:py-24 bg-white dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title">
             Frequently Asked Questions
@@ -241,7 +265,7 @@ export const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

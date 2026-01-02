@@ -2,68 +2,159 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  overflow-x: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  min-width: 320px;
+  @apply bg-white dark:bg-slate-950 text-gray-900 dark:text-gray-50 transition-colors duration-500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
-  font-weight: 500;
-  text-decoration: inherit;
-}
-
-@layer base {
-  body {
-    @apply bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-50 transition-colors duration-300;
-  }
+  @apply font-medium no-underline;
 }
 
 @layer components {
+  /* Gallery Components - Bento Grid Design */
   .gallery-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    @apply grid grid-cols-1 md:grid-cols-4 gap-6;
   }
 
   .gallery-item {
-    @apply relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer;
+    @apply relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer;
+    background: white;
+    min-height: 280px;
+  }
+
+  .gallery-item.dark {
+    @apply dark:bg-slate-800;
+  }
+
+  .gallery-item:hover {
+    @apply transform scale-[1.02];
   }
 
   .gallery-item:hover .gallery-image {
-    @apply scale-110;
+    @apply scale-110 brightness-110;
   }
 
   .gallery-item:hover .gallery-overlay {
-    @apply bg-opacity-40;
+    @apply bg-opacity-50;
   }
 
   .gallery-image {
-    @apply w-full h-64 object-cover transition-transform duration-500;
+    @apply w-full h-full object-cover transition-all duration-700;
   }
 
   .gallery-overlay {
-    @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 flex items-center justify-center;
+    @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-500 flex items-center justify-center;
   }
 
+  .gallery-badge {
+    @apply absolute top-4 right-4 px-4 py-2 bg-adventure-500 text-white rounded-full text-sm font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+
+  .gallery-title {
+    @apply absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/50 to-transparent text-white;
+  }
+
+  /* Seamless Bento Grid Layout - No Gaps */
+  .gallery-item:nth-child(1) {
+    @apply md:col-span-1 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(2) {
+    @apply md:col-span-1 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(3) {
+    @apply md:col-span-2 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(4) {
+    @apply md:col-span-1 md:row-span-2;
+  }
+
+  .gallery-item:nth-child(5) {
+    @apply md:col-span-1 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(6) {
+    @apply md:col-span-1 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(7) {
+    @apply md:col-span-2 md:row-span-1;
+  }
+
+  .gallery-item:nth-child(8) {
+    @apply md:col-span-1 md:row-span-2;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply px-6 py-3 bg-sage-600 dark:bg-sky-500 text-white rounded-lg font-semibold hover:bg-sage-700 dark:hover:bg-sky-600 transition-colors duration-300;
+    @apply px-8 py-3 bg-gradient-to-r from-adventure-500 to-forest-500 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border-2 border-sage-600 dark:border-sky-500 text-sage-600 dark:text-sky-400 rounded-lg font-semibold hover:bg-sage-50 dark:hover:bg-slate-800 transition-colors duration-300;
+    @apply px-8 py-3 border-2 border-adventure-500 dark:border-adventure-400 text-adventure-600 dark:text-adventure-300 rounded-lg font-semibold hover:bg-adventure-50 dark:hover:bg-slate-900 transition-all duration-300;
   }
 
+  .btn-ghost {
+    @apply px-6 py-2 text-adventure-600 dark:text-adventure-300 hover:bg-adventure-50 dark:hover:bg-slate-800 rounded-lg transition-colors duration-300;
+  }
+
+  /* Section Styling */
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-center mb-12 text-sage-900 dark:text-sky-300;
+    @apply text-5xl md:text-6xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-adventure-600 to-forest-600;
   }
 
-  .form-input {
-    @apply w-full px-4 py-3 border-2 border-sage-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-50 rounded-lg focus:outline-none focus:border-sage-600 dark:focus:border-sky-500 transition-colors duration-300;
+  .section-subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto;
+  }
+
+  /* Form Elements */
+  .form-input,
+  .form-textarea {
+    @apply w-full px-4 py-3 border-2 border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-50 rounded-lg focus:outline-none focus:border-adventure-500 dark:focus:border-adventure-400 transition-colors duration-300;
+  }
+
+  .form-textarea {
+    @apply resize-vertical min-h-[120px];
+  }
+
+  /* Cards */
+  .card {
+    @apply p-8 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply transform -translate-y-2;
+  }
+
+  /* Animations */
+  .animate-on-scroll {
+    @apply opacity-0;
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  /* Gradients */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-adventure-600 to-earth-600;
   }
 }
 a:hover {

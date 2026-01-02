@@ -57,54 +57,55 @@ export const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sage-50 to-sky-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-sage-200 dark:bg-sage-900 rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-200 dark:bg-sky-900 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      <section className="relative py-20 md:py-40 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-adventure-200 dark:bg-adventure-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-forest-200 dark:bg-forest-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animation-float" style={{animationDelay: '2s'}}></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-sage-900 dark:text-sky-300">
-            Discover the World Through My Lens
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Join me on extraordinary journeys across breathtaking landscapes, hidden gems, and unforgettable moments captured in stunning galleries and videos.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/about" className="btn-primary">
-              Learn About Me
-            </Link>
-            <a href="#gallery" className="btn-secondary">
-              View Gallery
-            </a>
+          <div className="space-y-8 animate-slide-up">
+            <h1 className="section-title">
+              Discover the World Through My Lens
+            </h1>
+            <p className="section-subtitle">
+              Join me on extraordinary journeys across breathtaking landscapes, hidden gems, and unforgettable moments captured in stunning galleries and videos.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <Link to="/about" className="btn-primary inline-block">
+                Learn About Me
+              </Link>
+              <a href="#gallery" className="btn-secondary inline-block">
+                View Gallery
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white dark:bg-slate-800/50 shadow-sm">
+      <section className="py-16 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-sage-600 dark:text-sky-400 mb-2">15+</div>
-              <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-                <MapPin size={20} /> Countries Explored
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-sage-600 dark:text-sky-400 mb-2">500+</div>
-              <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-                <Camera size={20} /> Photos & Videos
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-sage-600 dark:text-sky-400 mb-2">50K+</div>
-              <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-                <Heart size={20} /> Amazing Followers
-              </p>
-            </div>
+            {[
+              { icon: MapPin, value: '15+', label: 'Countries Explored' },
+              { icon: Camera, value: '500+', label: 'Photos & Videos' },
+              { icon: Heart, value: '50K+', label: 'Amazing Followers' },
+            ].map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <div key={idx} className="card text-center hover:scale-110">
+                  <Icon className="w-12 h-12 mx-auto mb-4 text-adventure-500" />
+                  <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+                  <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
+                    {stat.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -112,21 +113,31 @@ export const Home = () => {
       {/* Gallery Section */}
       <section id="gallery" className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title">
-            Latest Adventures
-          </h2>
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="section-title">
+              Latest Adventures
+            </h2>
+            <p className="section-subtitle">
+              Explore my most recent discoveries and unforgettable moments
+            </p>
+          </div>
           <Gallery items={galleryItems} />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-sage-600 dark:bg-sky-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Connect?</h2>
-          <p className="text-lg mb-8 opacity-90">
+      <section className="py-20 bg-gradient-to-r from-adventure-500 via-forest-500 to-adventure-600 dark:from-adventure-900 dark:via-forest-900 dark:to-adventure-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-up">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Connect?</h2>
+          <p className="text-xl mb-8 opacity-95 max-w-2xl mx-auto">
             Have a question, collaboration idea, or just want to say hello? I'd love to hear from you!
           </p>
-          <Link to="/contact" className="inline-block px-8 py-4 bg-white text-sage-600 dark:text-sky-600 font-bold rounded-lg hover:bg-gray-100 transition-colors duration-300">
+          <Link to="/contact" className="inline-block px-10 py-4 bg-white text-adventure-600 dark:text-adventure-700 font-bold rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
             Get In Touch
           </Link>
         </div>
@@ -134,3 +145,4 @@ export const Home = () => {
     </div>
   );
 };
+

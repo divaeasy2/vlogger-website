@@ -22,19 +22,19 @@ export const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-sage-50 to-sky-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50 to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200 dark:bg-sky-900 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-10 right-20 w-64 h-64 bg-adventure-200 dark:bg-adventure-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-sage-900 dark:text-sky-300">
+          <div className="text-center mb-16 animate-slide-up">
+            <h1 className="section-title">
               About Me
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="section-subtitle">
               A travel enthusiast documenting the world's most beautiful moments
             </p>
           </div>
@@ -44,17 +44,17 @@ export const About = () => {
       {/* Main Content */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 animate-slide-up">
             {/* Image Section */}
-            <div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-sage-400 to-sky-400 rounded-2xl transform rotate-6"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
-                  alt="About"
-                  className="relative w-full rounded-2xl shadow-xl"
-                />
-              </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-adventure-400 via-forest-400 to-adventure-500 rounded-3xl transform rotate-3 scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-tl from-forest-500 to-adventure-400 rounded-3xl transform -rotate-3 opacity-70"></div>
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
+                alt="About"
+                className="relative w-full rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             {/* Text Section */}
@@ -162,15 +162,22 @@ export const About = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-sage-600 to-sky-600 dark:from-sky-700 dark:to-sky-600 rounded-xl p-12 text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Follow My Adventures?</h2>
-            <p className="text-lg mb-8 opacity-90">
-              Join thousands of followers who love travel inspiration and stunning visual storytelling.
-            </p>
-            <Link to="/contact" className="inline-block px-8 py-3 bg-white text-sage-600 dark:text-sky-600 font-bold rounded-lg hover:bg-gray-100 transition-colors duration-300">
-              Get In Touch
-            </Link>
-          </div>
+          <section className="rounded-lg py-20 bg-gradient-to-r from-adventure-500 via-forest-500 to-adventure-600 dark:from-adventure-900 dark:via-forest-900 dark:to-adventure-900 text-white relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+            </div>
+            
+            <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-up">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Connect?</h2>
+              <p className="text-xl mb-8 opacity-95 max-w-2xl mx-auto">
+                Have a question, collaboration idea, or just want to say hello? I'd love to hear from you!
+              </p>
+              <Link to="/contact" className="inline-block px-10 py-4 bg-white text-adventure-600 dark:text-adventure-700 font-bold rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Get In Touch
+              </Link>
+            </div>
+          </section>
         </div>
       </section>
     </div>

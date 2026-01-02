@@ -16,37 +16,38 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-slate-900 shadow-md transition-colors duration-300">
+    <nav className="sticky top-0 z-40 bg-white dark:bg-slate-950 shadow-lg transition-all duration-300 border-b border-gray-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-sage-600 dark:bg-sky-500 rounded-full flex items-center justify-center text-white font-bold">
-              VL
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-11 h-11 bg-gradient-to-br from-adventure-500 to-forest-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-adventure-500/50 group-hover:shadow-xl transition-shadow duration-300">
+              ✈️
             </div>
-            <span className="hidden sm:inline font-bold text-xl text-sage-900 dark:text-sky-300">
+            <span className="hidden sm:inline font-bold text-xl bg-gradient-to-r from-adventure-600 to-forest-600 bg-clip-text text-transparent">
               Travel Vlogger
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-gray-700 dark:text-gray-300 hover:text-sage-600 dark:hover:text-sky-400 transition-colors duration-300 font-medium"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-adventure-600 dark:hover:text-adventure-400 transition-colors duration-300 font-medium relative group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-adventure-500 to-forest-500 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </div>
 
           {/* Theme Toggle and Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-sage-100 dark:bg-slate-800 text-sage-600 dark:text-sky-400 hover:bg-sage-200 dark:hover:bg-slate-700 transition-colors duration-300"
+              className="p-2.5 rounded-lg bg-gray-100 dark:bg-slate-800 text-adventure-600 dark:text-adventure-400 hover:bg-adventure-100 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -55,7 +56,7 @@ export const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2 text-gray-700 dark:text-gray-300"
+              className="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-adventure-600 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -65,12 +66,12 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-200 dark:border-slate-700">
+          <div className="md:hidden pb-4 border-t border-gray-100 dark:border-slate-800 animate-slide-up">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="block py-2 text-gray-700 dark:text-gray-300 hover:text-sage-600 dark:hover:text-sky-400 transition-colors duration-300 font-medium"
+                className="block py-2.5 px-4 text-gray-700 dark:text-gray-300 hover:text-adventure-600 dark:hover:text-adventure-400 transition-colors duration-300 font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
