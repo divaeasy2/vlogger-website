@@ -54,6 +54,8 @@ export default {
         'fade-in': 'fadeIn 0.8s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'wave': 'wave 2s ease-in-out infinite',
+        'dash': 'dash 1.5s linear infinite',
       },
       keyframes: {
         float: {
@@ -79,6 +81,14 @@ export default {
         pulse: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.5' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'scaleY(1)' },
+          '50%': { transform: 'scaleY(1.1)' },
+        },
+        dash: {
+          '0%': { strokeDashoffset: '100' },
+          '100%': { strokeDashoffset: '0' },
         },
       },
       backgroundImage: {

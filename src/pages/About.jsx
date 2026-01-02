@@ -24,7 +24,7 @@ export const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50 to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      {/* <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 right-20 w-64 h-64 bg-adventure-200 dark:bg-adventure-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
         </div>
@@ -39,12 +39,12 @@ export const About = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 sm:py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 animate-slide-up">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 sm:mb-20 animate-slide-up">
             {/* Image Section */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-adventure-400 via-forest-400 to-adventure-500 rounded-3xl transform rotate-3 scale-105"></div>
@@ -59,41 +59,41 @@ export const About = () => {
 
             {/* Text Section */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-sage-900 dark:text-sky-300">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-sage-900 dark:text-sky-300">
                 My Journey Began
               </h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed">
                 Five years ago, I left my conventional life to pursue my passion for travel and storytelling. What started as a personal blog has evolved into a thriving platform where I share my most incredible adventures with people from around the world.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed">
                 My mission is simple: to inspire others to explore, discover, and appreciate the incredible beauty of our planet. Every photograph, every video, and every story is crafted with genuine care and passion.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                 Whether I'm hiking through mountain ranges, diving in crystal-clear waters, or exploring vibrant cities, I'm always looking for those magical moments that remind us why travel matters.
               </p>
             </div>
           </div>
 
           {/* Skills Section */}
-          <div className="mb-20">
-            <h2 className="section-title">
+          <div className="mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-8 sm:mb-12 text-center">
               What I'm Passionate About
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {skills.map((skill, index) => {
                 const Icon = skill.icon;
                 return (
                   <div
                     key={index}
-                    className="p-8 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="p-6 sm:p-8 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
                   >
-                    <div className="text-sage-600 dark:text-sky-400 mb-4">
-                      <Icon size={40} />
+                    <div className="text-sage-600 dark:text-sky-400 mb-3 sm:mb-4">
+                      <Icon size={36} className="sm:w-10 sm:h-10" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-sage-900 dark:text-sky-300">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-sage-900 dark:text-sky-300">
                       {skill.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-400">
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400">
                       {skill.description}
                     </p>
                   </div>
@@ -103,13 +103,13 @@ export const About = () => {
           </div>
 
           {/* Travel Milestones - Treasure Hunt Steps */}
-          <div className="mb-20">
-            <h2 className="section-title">
+          <div className="mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-8 sm:mb-12 text-center">
               Travel Milestones
             </h2>
             
             {/* Wavy Timeline Line */}
-            <div className="relative mb-16 hidden md:block">
+            <div className="relative mb-12 sm:mb-16 hidden md:block">
               <svg className="w-full h-20" viewBox="0 0 1000 80" preserveAspectRatio="none">
                 <path
                   d="M0,40 Q125,10 250,40 T500,40 T750,40 T1000,40"
@@ -128,7 +128,7 @@ export const About = () => {
               </svg>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {[
                 {
                   year: '2019',
@@ -166,7 +166,31 @@ export const About = () => {
                     <div className="w-12 h-12 bg-gradient-to-r from-adventure-500 to-forest-500 dark:from-adventure-600 dark:to-forest-600 rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-lg hover:scale-110 transition-transform duration-300">
                       {index + 1}
                     </div>
-                    {index < 5 && <div className="w-1 h-16 bg-gradient-to-b from-adventure-500 via-forest-500 to-transparent dark:from-adventure-400 dark:via-forest-400"></div>}
+                    {index < 5 && (
+                      <svg width="28" height="80" viewBox="0 0 28 80" className="drop-shadow-lg animate-wave">
+                        {/* Fun wavy line with multiple waves */}
+                        <path
+                          d="M14,0 Q8,12 14,24 Q20,36 14,48 Q8,60 14,72 L14,80"
+                          stroke="url(#waveGradientVertical)"
+                          strokeWidth="3"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="animate-dash"
+                        />
+                        {/* Double wave for fun effect */}
+                        <circle cx="14" cy="12" r="2" fill="#0ea5e9" opacity="0.6" className="animate-pulse" />
+                        <circle cx="14" cy="36" r="2" fill="#22c55e" opacity="0.6" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+                        <circle cx="14" cy="60" r="2" fill="#ea5d2a" opacity="0.6" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
+                        <defs>
+                          <linearGradient id="waveGradientVertical" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#0ea5e9" />
+                            <stop offset="50%" stopColor="#22c55e" />
+                            <stop offset="100%" stopColor="#ea5d2a" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    )}
                   </div>
                   <div className="pb-8">
                     <div className="text-adventure-600 dark:text-adventure-400 font-bold text-lg">{milestone.year}</div>
