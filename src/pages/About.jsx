@@ -102,11 +102,32 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Timeline Section */}
+          {/* Travel Milestones - Treasure Hunt Steps */}
           <div className="mb-20">
             <h2 className="section-title">
               Travel Milestones
             </h2>
+            
+            {/* Wavy Timeline Line */}
+            <div className="relative mb-16 hidden md:block">
+              <svg className="w-full h-20" viewBox="0 0 1000 80" preserveAspectRatio="none">
+                <path
+                  d="M0,40 Q125,10 250,40 T500,40 T750,40 T1000,40"
+                  stroke="url(#waveGradient)"
+                  strokeWidth="3"
+                  fill="none"
+                  className="drop-shadow-lg"
+                />
+                <defs>
+                  <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0ea5e9" />
+                    <stop offset="50%" stopColor="#22c55e" />
+                    <stop offset="100%" stopColor="#ea5d2a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
             <div className="space-y-8">
               {[
                 {
@@ -140,16 +161,16 @@ export const About = () => {
                   description: 'Exploring emerging destinations and sharing untold stories from the world\'s most remote regions.',
                 },
               ].map((milestone, index) => (
-                <div key={index} className="flex gap-8">
+                <div key={index} className="flex gap-8 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-sage-600 dark:bg-sky-500 rounded-full flex items-center justify-center text-white font-bold mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-adventure-500 to-forest-500 dark:from-adventure-600 dark:to-forest-600 rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-lg hover:scale-110 transition-transform duration-300">
                       {index + 1}
                     </div>
-                    {index < 5 && <div className="w-1 h-16 bg-gradient-to-b from-sage-600 to-transparent dark:from-sky-500"></div>}
+                    {index < 5 && <div className="w-1 h-16 bg-gradient-to-b from-adventure-500 via-forest-500 to-transparent dark:from-adventure-400 dark:via-forest-400"></div>}
                   </div>
                   <div className="pb-8">
-                    <div className="text-sage-600 dark:text-sky-400 font-bold text-lg">{milestone.year}</div>
-                    <h3 className="text-xl font-bold text-sage-900 dark:text-sky-300 mb-2">
+                    <div className="text-adventure-600 dark:text-adventure-400 font-bold text-lg">{milestone.year}</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {milestone.title}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-400">
