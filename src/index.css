@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-50 transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .gallery-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .gallery-item {
+    @apply relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer;
+  }
+
+  .gallery-item:hover .gallery-image {
+    @apply scale-110;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    @apply bg-opacity-40;
+  }
+
+  .gallery-image {
+    @apply w-full h-64 object-cover transition-transform duration-500;
+  }
+
+  .gallery-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-sage-600 dark:bg-sky-500 text-white rounded-lg font-semibold hover:bg-sage-700 dark:hover:bg-sky-600 transition-colors duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-sage-600 dark:border-sky-500 text-sage-600 dark:text-sky-400 rounded-lg font-semibold hover:bg-sage-50 dark:hover:bg-slate-800 transition-colors duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-12 text-sage-900 dark:text-sky-300;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border-2 border-sage-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-50 rounded-lg focus:outline-none focus:border-sage-600 dark:focus:border-sky-500 transition-colors duration-300;
+  }
+}
+a:hover {
+  color: #535bf2;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
